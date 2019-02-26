@@ -36,7 +36,7 @@ router.get("/:id", (req, res) => {
   db.post
     .findOne({
       where: { id },
-      include: [db.author]
+      include: [db.author, db.comment]
     })
     .then(post => {
       if (!post) throw Error();
@@ -44,6 +44,19 @@ router.get("/:id", (req, res) => {
     })
     .catch(error => {
       res.status(500).render("main/500");
+    });
+});
+// /posts/1
+router.post("/:id", (req, res) => {
+  let id = parseInt(req.params.id);
+  db.comment
+    .create({
+      name: req.body.name,
+      content: req.body.content,
+      postId: req.body.postId
+    })
+    .then(() => {
+      res.redirect(`/posts/${id}`);
     });
 });
 

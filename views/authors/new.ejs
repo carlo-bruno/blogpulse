@@ -1,6 +1,19 @@
-<h1>Sign up as an Author</h1>
+<a href="/">&larr; Back Home</a>
+<div class="mx-auto w-50">
+  <h2 class="text-center">Sign up as an Author</h2>
 
-<form action="/authors" method="POST">
-  <input type="text" name="name" placeholder="Enter your name" />
-  <input type="submit" value="Create" />
-</form>
+  <form class="mt-4" action="/authors" method="POST">
+    <input
+      class="form-control my-2"
+      type="text"
+      name="name"
+      placeholder="Enter your name"
+      required
+    />
+    <input
+      class="btn btn-success w-100 my-2"
+      type="submit"
+      value="Create"
+    />
+  </form>
+</div>

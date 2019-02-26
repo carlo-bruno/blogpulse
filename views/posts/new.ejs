@@ -1,20 +1,35 @@
-<h1>Create a new Post</h1>
+<a href="/">&larr; Back Home</a>
+<div class="mx-auto w-50">
+  <h2 class="text-center">Create a new Post</h2>
 
-<form action="/posts" method="POST">
-  <select name="authorId" required>
-    <% authors.forEach(author => { %>
-    <option value="<%= author.id %>"><%=author.name %></option>
-    <% }); %>
-  </select>
+  <form class="mt-4" action="/posts" method="POST">
+    <select class="form-control my-2" name="authorId" required>
+      <option selected disabled hidden>Select Author</option>
+      <% authors.forEach(author => { %>
+      <option value="<%= author.id %>"><%=author.name %></option>
+      <% }); %>
+    </select>
 
-  <input type="text" name="title" placeholder="Title..." required />
+    <input
+      class="form-control my-2"
+      type="text"
+      name="title"
+      placeholder="Title..."
+      required
+    />
 
-  <textarea
-    name="content"
-    placeholder="Post Content"
-    cols="30"
-    rows="10"
-    required
-  ></textarea>
-  <input type="submit" value="Create Post!" />
-</form>
+    <textarea
+      class="form-control my-2"
+      name="content"
+      placeholder="Post Content"
+      cols="30"
+      rows="10"
+      required
+    ></textarea>
+    <input
+      class="btn btn-success w-100 my-2"
+      type="submit"
+      value="Create Post!"
+    />
+  </form>
+</div>

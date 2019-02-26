@@ -1,9 +1,15 @@
-<h1>Authors</h1>
-
-<% authors.forEach(author => { %>
-<div class="well">
-  <h2><a href="/authors/<%= author.id %>"><%=author.name%></a></h2>
-</div>
-<% }) %>
-<hr />
 <a href="/">&larr; Back Home</a>
+<div class="mx-auto w-75">
+  <h2 class="text-center">Authors</h2>
+  <div class="ml-5 w-75 mx-auto">
+    <ul class="list-group mt-3 ">
+      <% authors.forEach(author => { %>
+      <li class="list-group-item mb-1">
+        <h3 class="text-center">
+          <a href="/authors/<%= author.id %>"><%=author.name%></a>
+        </h3>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>

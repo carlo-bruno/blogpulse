@@ -1,6 +1,49 @@
-<h1><%= post.title %> by <%= post.author.name %></h1>
-
-<p><%= post.content%></p>
-<hr />
-
 <a href="/">&larr; Back Home</a>
+<div class="jumbotron w-75 mx-auto">
+  <h2><%= post.title %> by <%= post.author.name %></h2>
+  <hr class="my-3" />
+  <p><%= post.content%></p>
+</div>
+<div class="mx-auto w-50">
+  <h4>Comments:</h4>
+  <% post.comments.forEach(comment => { %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <h4 class="card-title"><%= comment.content %></h4>
+      <p class="card-subtitle text-right">
+        &mdash; <%= comment.name %>
+      </p>
+    </div>
+  </div>
+  <% });%>
+</div>
+<hr />
+<div class="mx-auto w-50">
+  <h4>Add Comment:</h4>
+  <form action="/posts/<%=post.id%>" method="POST">
+    <input
+      hidden
+      type="number"
+      name="postId"
+      value="<%= post.id %>"
+    />
+    <input
+      class="form-control my-2"
+      type="text"
+      name="name"
+      placeholder="Name..."
+    />
+    <textarea
+      class="form-control my-2"
+      name="content"
+      cols="30"
+      rows="10"
+      placeholder="Comment..."
+    ></textarea>
+    <input
+      class="btn btn-primary w-100 my-2"
+      type="submit"
+      value="Comment!"
+    />
+  </form>
+</div>

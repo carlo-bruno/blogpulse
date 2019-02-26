@@ -1,14 +1,28 @@
-<h1>Latest Posts from BlogPulse</h1>
+<div class="mx-auto w-75">
+  <h2 class="text-center">Latest Posts from BlogPulse</h2>
 
-<a href="/authors">Get all Authors</a> |
-<a href="/authors/new">Add a New Author</a> |
-<a href="/posts/new">Create a New Post</a>
-
-<% posts.forEach(post => { %>
-<div class="well">
-  <h2>
-    <a href="/posts/<%= post.id%>"><%= post.title%></a>
-    by <%= post.author.name %>
-  </h2>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="/authors">Get all Authors</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/authors/new">Add a New Author</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/posts/new">Create a New Post</a>
+    </li>
+  </ul>
+  <div class="ml-5 w-100">
+    <h3>Posts:</h3>
+    <ul class="list-group mt-3">
+      <% posts.forEach(post => { %>
+      <li class="list-group-item mb-1">
+        <h4>
+          <a href="/posts/<%= post.id%>"><%= post.title%></a>
+          by <%= post.author.name %>
+        </h4>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
 </div>
-<% }); %>
