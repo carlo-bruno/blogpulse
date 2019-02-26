@@ -1,0 +1,14 @@
+<h1>Latest Posts from BlogPulse</h1>
+
+<a href="/authors">Get all Authors</a> |
+<a href="/authors/new">Add a New Author</a> |
+<a href="/posts/new">Create a New Post</a>
+
+<% posts.forEach(post => { %>
+<div class="well">
+  <h2>
+    <a href="/posts/<%= post.id%>"><%= post.title%></a>
+    by <%= post.author.name %>
+  </h2>
+</div>
+<% }); %>
